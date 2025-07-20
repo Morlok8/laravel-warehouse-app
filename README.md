@@ -12,15 +12,38 @@
 </ol>
 
 <h3>Маршруты API</h3>
-get: host/api/products --- получить список товаров
-get: host/api/warehouse --- получить список складов
+<p>get: host/api/products --- получить список товаров </p>
+<p>get: host/api/warehouse --- получить список складов </p>
 
-get: host/api/orders --- получить список заказов
-get: host/api/stock-movements --- получить историю изменения количества товаров на складах
+<p>get: host/api/orders --- получить список заказов </p>
+<p>get: host/api/stock-movements --- получить историю изменения количества товаров на складах </p>
 
-post: host/api/orders  --- добавить заказ
+<p>post: host/api/orders  --- добавить заказ </p>
+<p>Тело запроса:</p>
+{
+    "customer": "name",
+    "warehouse_id": number, //id склада
+    "products":{
+        [
+            "id": product_id, //id товара
+            "count": 1 //количество товара
+        ],
+    }
+}
+<p>patch: host/api/orders/{id} --- изменить заказ </p>
+<p>Тело запроса:</p>
+{
+    "customer": "name",
+    "warehouse_id": number, //id склада
+    "products":{
+        [
+            "id": product_id, //id товара
+            "count": 1 //количество товара
+        ],
+    }
+}
+<p>При обновлении, список товаров создается заново</p>
 
-patch: host/api/orders/{id} --- изменить заказ
-patch: host/api/orders/cancel/{id} --- отменить заказ
-patch: host/api/orders/complete/{id} --- завершить заказ
-patch: host/api/orders/restore/{id} --- восстановить заказ
+<p>patch: host/api/orders/cancel/{id} --- отменить заказ </p>
+<p>patch: host/api/orders/complete/{id} --- завершить заказ </p>
+<p>patch: host/api/orders/restore/{id} --- восстановить заказ </p>
